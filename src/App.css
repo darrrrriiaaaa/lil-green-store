@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+/* common styles */
+
+*, *::before, *::after {
+  --background-color: #b8ffc3;
+  --background-color-transparent: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "EB Garamond", serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: inherit
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a:visited {
+  color: inherit;
+}
+
+.HeaderText {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.CursiveText {
+  font-family: "Dancing Script", cursive;
+}
+
+/* header styles */
+
+.Header {
+  background-color: var(--background-color-transparent);
+  height: 16vh;
+  font-weight: 400;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.HeaderSection {
+  height: 60%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: end;
+  font-size: 24px;
+  opacity: 1;
+}
+
+.HeaderItem {
+  height: 4vh;
+}
+
+.Logo {
+  height: 100%;
+}
+
+.MenuSection {
+  height: 40%;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: baseline;
+  font-size: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.MenuItem {
+  margin: 1% 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* content styles */
+
+.ContentSection {
+}
+
+/* home page styles */
+
+.HomeFirstSection {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.HomeFirstPhoto {
+  width: 100%;
+  display: block;
+}
+
+.HomeFirstSectionText {
+  position: absolute;
+  background-color: var(--background-color);
+  top: 50%;
+  left: 50%;
+  padding: 2%;
+  display: flex;
 }
