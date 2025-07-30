@@ -12,13 +12,13 @@ const Header = () => {
                 <form  className="HeaderItem">
                     <img src={search_logo} alt="" className="Logo"/>
                 </form>
-                <NavLink to="/" className="HeaderText HeaderItem">lil' green store</NavLink>
+                <NavLink to="/" className="HeaderItem">lil' green store</NavLink>
                 <NavLink to="/profile"  className="HeaderItem"><img src={user_logo} alt="profile"  className="Logo"/></NavLink>
             </section>
             <section className="MenuSection">
-                <NavLink to="/" className="HeaderText MenuItem">home</NavLink>
-                <NavLink to="/assortment-all" className="HeaderText MenuItem">shop</NavLink>
-                <NavLink to="/about-us" className="HeaderText MenuItem">about us</NavLink>
+                <NavLink to="/" className="MenuItem">home</NavLink>
+                <NavLink to="/assortment-all" className="MenuItem">shop</NavLink>
+                <NavLink to="/about-us" className="MenuItem">about us</NavLink>
             </section>
         </header>
     )

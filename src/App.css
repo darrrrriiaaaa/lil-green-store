@@ -1,20 +1,22 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
 /* common styles */
 
 *, *::before, *::after {
-  --background-color: #b8ffc3;
-  --background-color-transparent: rgba(255, 255, 255, 0.5);
+  --main-bg-color-transparent: rgba(255, 255, 255, 0.8);
+  --header-color-transparent: rgba(255, 255, 255, 0.5);
+  --button-bg-color: #054700;
+  --button-text-color: #ffffff;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "EB Garamond", serif;
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
   font-size: 14px;
+  line-height: 1.4;
 }
 
 a {
@@ -22,22 +24,29 @@ a {
   color: inherit
 }
 
-a:visited {
-  color: inherit;
-}
-
-.HeaderText {
-  font-family: "Josefin Sans", sans-serif;
-}
-
 .CursiveText {
   font-family: "Dancing Script", cursive;
+}
+
+.Button {
+  border-radius: 100px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 2%;
+}
+
+.FirstHeader {
+  font-size: 3em;
+}
+
+.SecondHeader {
+  font-size: 2em;
 }
 
 /* header styles */
 
 .Header {
-  background-color: var(--background-color-transparent);
+  background-color: var(--header-color-transparent);
   height: 16vh;
   font-weight: 400;
   position: sticky;
@@ -85,6 +94,7 @@ a:visited {
 
 .HomeFirstSection {
   width: 100%;
+  height: 90vh;
   position: relative;
   margin: 0;
   padding: 0;
@@ -92,14 +102,56 @@ a:visited {
 
 .HomeFirstPhoto {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
 .HomeFirstSectionText {
   position: absolute;
-  background-color: var(--background-color);
-  top: 50%;
+  background-color: var(--main-bg-color-transparent);
+  height: 40%;
+  width: 40%;
+  border-radius: 100px;
+  top: 30%;
   left: 50%;
-  padding: 2%;
+  padding: 3%;
   display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+
+.HomeFirstText {
+  font-size: 1.5em;
+}
+
+.HomeFirstButton {
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+.HomeSecondSection {
+  height: 50vh;
+  padding: 3% 12%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.HomeSecondSectionText {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+
+.HomeSecondText {
+  font-size: 1.3em;
+}
+
+.HomeSecondSectionImage {
+  height: 100%;
 }
