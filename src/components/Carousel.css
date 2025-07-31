@@ -1,0 +1,30 @@
+.CarouselSection {
+}
+
+.CarouselItem {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  height: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+.ActiveCarouselItem {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.SideCarouselItem {
+  transform: scale(0.7);
+  opacity: 0.7;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.HiddenCarouselItem {
+  display: none;
+}
