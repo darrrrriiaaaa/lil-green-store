@@ -7,6 +7,7 @@
 *, *::before, *::after {
   --main-bg-color-transparent: rgba(255, 255, 255, 0.8);
   --header-color-transparent: rgba(255, 255, 255, 0.5);
+  --second-bg-color: #d5ffd5;
   --button-bg-color: #054700;
   --button-text-color: #ffffff;
   box-sizing: border-box;
@@ -83,11 +84,6 @@ a {
 
 .MenuItem {
   margin: 1% 2%;
-}
-
-/* content styles */
-
-.ContentSection {
 }
 
 /* home page styles */
@@ -171,8 +167,48 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
 }
 
 .HomeCarouselText {
   width: 20%;
+}
+
+/* shop page styles */
+
+.ShopContent {
+  background-color: var(--second-bg-color);
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.ProductCard {
+  background-color: white;
+  height: 60vh;
+  width: 20vw;
+  padding: 1.5%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ProductImage {
+  height: 60%;
+  object-fit: contain;
+}
+
+.ProductHeader {
+  font-size: 1.5em;
+}
+
+.ProductPrice {
+  font-size: 1.2em;
+}
+
+.ProductDescription {
+  font-size: 1em;
 }

@@ -3,31 +3,37 @@ import React, { useState } from "react";
 import './Carousel.css';
 
 const Carousel = ({ images }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(1);
 
     const handleClick = (index) => {
         setActiveIndex(index);
     };
 
+    const mod = (n, m) => ((n % m) + m) % m;
+
     return (
         <div className="CarouselSection">
             {images.map((img, index) => {
-                let className="CarouselItem";
-                if (index === activeIndex) {
-                    className += " ActiveCarouselItem";
-                } else if (
-                    index === (activeIndex - 2 + images.length) % images.length ||
-                    index === (activeIndex + 2) % images.length
-                ) {
-                    className += " SideCarouselItem";
-                } else {
-                    className += " HiddenCarouselItem";
-                }
+                const offset = mod(index - activeIndex, images.length);
+                let className = "CarouselItem";
 
+                if (offset === 0) className += " ActiveCarouselItem";
+                else if (offset === 1 || offset === images.length - 1) className += " SideCarouselItem";
+                else className += " HiddenCarouselItem";
+
+                const translateX = (offset > images.length / 2 ? offset - images.length : offset) * 40;
+                
                 return (
-                    <img key={index} src={img} className={className} onClick={() => handleClick(index)} />
-                )
-            })}
+                    <img
+                    key={index}
+                    src={img}
+                    alt=""
+                    className={className}
+                    style={{
+                    transform: `translateX(${translateX}%) scale(${offset === 0 ? 1 : 0.7})`, }}
+                    onClick={() => handleClick(index)} />
+                );
+      })}
         </div>
     );
 };

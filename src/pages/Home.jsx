@@ -14,7 +14,7 @@ const images = [ photo_succulents, photo_rosemary, photo_dracaena ];
 
 const Home = () => {
     return (
-        <div className="ContentSection">
+        <div>
             <section className="HomeFirstSection">
                 <img src={photo_window_w_plants} alt="" className="HomeFirstPhoto"/>
                 <section className="HomeFirstSectionText">
@@ -42,7 +42,7 @@ const Home = () => {
                         These beauties are trending right now.
                         Add a touch of green to your desk, shelf, or corner nook.
                     </p>
-                    <Carousel images={images} />
+                    <Carousel images={images} className="" />
                 </section>
             </section>
         </div>
