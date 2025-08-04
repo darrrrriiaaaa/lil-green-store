@@ -11,7 +11,10 @@ const Assortment = () => {
                     <img src={product.image} alt={product.name} className="ProductImage"/>
                     <NavLink className="ProductHeader">{product.name}</NavLink>
                     <p className="ProductDescription">{product.description}</p>
-                    <p className="ProductPrice">{product.price}</p>
+                    <section className="PriceAndBuy">
+                        <p className="ProductPrice">{product.price}</p>
+                        <button className="Button AddToCartBtn">Add to Cart</button>
+                    </section>
                 </section>
             ))}
         </section>

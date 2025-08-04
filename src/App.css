@@ -7,7 +7,7 @@
 *, *::before, *::after {
   --main-bg-color-transparent: rgba(255, 255, 255, 0.8);
   --header-color-transparent: rgba(255, 255, 255, 0.5);
-  --second-bg-color: #d5ffd5;
+  --second-bg-color: #e3fde3;
   --button-bg-color: #054700;
   --button-text-color: #ffffff;
   box-sizing: border-box;
@@ -17,7 +17,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 a {
@@ -34,6 +34,14 @@ a {
   background-color: var(--button-bg-color);
   color: var(--button-text-color);
   padding: 2%;
+  cursor: pointer;
+  border: 2px solid #054700;
+}
+
+.Button:hover {
+  background-color: var(--button-text-color);
+  color: var(--button-bg-color);
+  transition: background-color 0.3s ease;
 }
 
 .FirstHeader {
@@ -57,6 +65,7 @@ a {
 
 .HeaderSection {
   height: 60%;
+  padding: 0 5%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -65,8 +74,25 @@ a {
   opacity: 1;
 }
 
+.HeaderNameItem {
+  text-align: center;
+}
+
 .HeaderItem {
   height: 4vh;
+  width: 33%;
+}
+
+.HeaderLogos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.HeaderCart {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
 }
 
 .Logo {
@@ -178,22 +204,31 @@ a {
 
 .ShopContent {
   background-color: var(--second-bg-color);
-  padding: 1%;
+  padding: 3%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+  /*gap: 40px;*/
 }
 
 .ProductCard {
   background-color: white;
-  height: 60vh;
-  width: 20vw;
+  height: 70vh;
+  width: 25vw;
   padding: 1.5%;
+  margin: 3%;
   border-radius: 20px;
+  box-shadow: 2px 4px 6px 1px var(--button-bg-color);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ProductCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .ProductImage {
@@ -211,4 +246,15 @@ a {
 
 .ProductDescription {
   font-size: 1em;
+}
+
+.PriceAndBuy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.AddToCartBtn {
+  padding: 4%;
 }
