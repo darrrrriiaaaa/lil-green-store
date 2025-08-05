@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import photo_window_w_plants from '../images/window_photo.jpg';
@@ -9,6 +9,7 @@ import photo_dracaena from '../images/dracaena.png';
 
 /* import components */
 import Carousel from '../components/Carousel';
+import Slideshow from "../components/Slideshow";
 
 const images = [ photo_succulents, photo_rosemary, photo_dracaena ];
 
@@ -35,9 +36,9 @@ const Home = () => {
                     </p>
                 </section>
             </section>
-            <section className="HomeThirdSection">
+            <section className="HomeCarouselSection">
                 <h2 className="SecondHeader">Fresh Finds for Your Space</h2>
-                <section className="HomeThirdSectionContent">
+                <section className="HomeCarouselSectionContent">
                     <p className="HomeText HomeCarouselText">
                         These beauties are trending right now.
                         Add a touch of green to your desk, shelf, or corner nook.
@@ -45,6 +46,16 @@ const Home = () => {
                     <Carousel images={images} className="" />
                 </section>
             </section>
+            <section className="HomeColorSection">
+                <h2 className="SecondHeader">What makes us different?</h2>
+                <ul className="HomeList">
+                    <li className="HomeListItem">🪴 Carefully selected plants for any lifestyle</li>
+                    <li className="HomeListItem">🌎 Sustainable packaging</li>
+                    <li className="HomeListItem">✨ Stylish pots handmade by local artisans</li>
+                    <li className="HomeListItem">💌 Friendly plant care tips with every order</li>
+                </ul>
+            </section>
+            <Slideshow />
         </div>
     )
 };

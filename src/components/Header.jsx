@@ -23,9 +23,7 @@ const Header = () => {
                 <section className="HeaderLogos HeaderItem">
                     <NavLink to="/profile" className="HeaderLogo"><img src={user_logo} alt="profile" className="Logo"/></NavLink>
                     <button className="HeaderLogo HeaderCart" onClick={() => setCartOpen(true)}><img src={cart_logo} alt="" className="Logo" /></button>
-                    <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)}>
-                        <h2 className="SecondHeader">My Cart</h2>
-                    </Cart>
+                    <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
                 </section>
             </section>
             <section className="MenuSection">

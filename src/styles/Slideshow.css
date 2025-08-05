@@ -1,0 +1,43 @@
+@import url('./App.css');
+
+.HomeSlideshowSection {
+    position: relative;
+    margin: 0 auto;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    height: 70vh;
+}
+
+.SlideshowText {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 400;
+    z-index: 10;
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.SlideshowImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: transform 0.4s ease-out;
+}
+
+.SlideshowFade {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+.SlideshowFade.Active {
+    opacity: 1;
+    z-index: 1;
+}

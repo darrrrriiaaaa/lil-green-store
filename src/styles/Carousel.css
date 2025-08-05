@@ -1,0 +1,35 @@
+@import url('./App.css');
+
+.CarouselSection {
+  position: relative;
+  height: 44vh;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.CarouselItem {
+  position: absolute;
+  height: 40vh;
+  width: 40vh;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: var(--button-text-color);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.ActiveCarouselItem {
+  z-index: 3;
+}
+
+.SideCarouselItem {
+  z-index: 2;
+}
+
+.HiddenCarouselItem {
+  z-index: 0;
+}

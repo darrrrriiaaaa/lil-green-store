@@ -2,11 +2,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 //import css
-import './App.css';
+import './styles/App.css';
 
 // import components
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+// import context
+import { CartProvider } from './context/CartContext';
 
 // import pages
 import Home from './pages/Home';
@@ -16,7 +19,7 @@ import About from './pages/About';
 
 function App() {
   return (
-    <div className="App">
+    <CartProvider>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -27,7 +30,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-    </div>
+    </CartProvider>
   );
 }
 

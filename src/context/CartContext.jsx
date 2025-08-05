@@ -3,7 +3,7 @@ import { products } from "../data/products_all";
 
 const CartContext = createContext();
 
-export const CartProvider = ({ items }) => {
+export const CartProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
 
     const addToCart = (element) => {
@@ -11,10 +11,10 @@ export const CartProvider = ({ items }) => {
             const existing = prev.find(product => product.id === element.id);
             if (existing) {
                 return prev.map(product => 
-                    product.id === element.id ? { ...product, quantity: item.quantity + 1 } : item
+                    product.id === element.id ? { ...product, quantity: product.quantity + 1 } : product
                 );
             } else {
-                return [...prev, { ...item, quantity: 1 }];
+                return [...prev, { ...element, quantity: 1 }];
             }
         });
     };
@@ -26,7 +26,7 @@ export const CartProvider = ({ items }) => {
     const clearCart = () => setProducts([]);
 
     return (
-        <CartContext.Provider value={{ products, addToCart, removeFromCart, clearCart }}>{items}</CartContext.Provider>
+        <CartContext.Provider value={{ products, addToCart, removeFromCart, clearCart }}>{children}</CartContext.Provider>
     );
 };
 

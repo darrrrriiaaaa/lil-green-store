@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import './Carousel.css';
+import '../styles/Carousel.css';
 
 const Carousel = ({ images }) => {
     const [activeIndex, setActiveIndex] = useState(1);
@@ -17,20 +17,37 @@ const Carousel = ({ images }) => {
                 const offset = mod(index - activeIndex, images.length);
                 let className = "CarouselItem";
 
-                if (offset === 0) className += " ActiveCarouselItem";
-                else if (offset === 1 || offset === images.length - 1) className += " SideCarouselItem";
-                else className += " HiddenCarouselItem";
+                let translateX = 0;
+                let scale = 1;
+                let opacity = 1;
 
-                const translateX = (offset > images.length / 2 ? offset - images.length : offset) * 40;
-                
+                if (offset === 0)
+                    className += " ActiveCarouselItem";
+                else if (offset === 1) {
+                    className += " SideCarouselItem";
+                    translateX = 100;
+                    scale = 0.6;
+                    opacity = 0.5;
+                } else if (offset === images.length - 1) {
+                    className += " SideCarouselItem";
+                    translateX = -100;
+                    scale = 0.6;
+                    opacity = 0.5;
+                } else {
+                    className += " HiddenCarouselItem";
+                    opacity = 0;
+                }
+             
                 return (
                     <img
                     key={index}
                     src={img}
-                    alt=""
+                    alt={`carousel item ${index}`}
                     className={className}
                     style={{
-                    transform: `translateX(${translateX}%) scale(${offset === 0 ? 1 : 0.7})`, }}
+                        transform: `translateX(${translateX}%) scale(${scale})`,
+                        opacity: opacity,
+                    }}
                     onClick={() => handleClick(index)} />
                 );
       })}

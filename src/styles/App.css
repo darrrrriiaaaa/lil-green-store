@@ -30,6 +30,8 @@ a {
 }
 
 .Button {
+  font: inherit;
+  font-weight: 400;
   border-radius: 100px;
   background-color: var(--button-bg-color);
   color: var(--button-text-color);
@@ -39,7 +41,7 @@ a {
 }
 
 .Button:hover {
-  background-color: var(--button-text-color);
+  background-color: inherit;
   color: var(--button-bg-color);
   transition: background-color 0.3s ease;
 }
@@ -49,7 +51,7 @@ a {
 }
 
 .SecondHeader {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 /* header styles */
@@ -80,7 +82,7 @@ a {
 
 .HeaderItem {
   height: 4vh;
-  width: 33%;
+  min-width: 12%;
 }
 
 .HeaderLogos {
@@ -178,22 +180,37 @@ a {
   height: 100%;
 }
 
-.HomeThirdSection {
+.HomeColorSection {
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.HomeList {
+  font-size: 1.2rem;
+  line-height: 2.3;
+}
+
+.HomeCarouselSection {
+  background-color: var(--second-bg-color);
+  height: 60vh;
   max-width: 100vw;
   padding: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
-.HomeThirdSectionContent {
+.HomeCarouselSectionContent {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .HomeCarouselText {
@@ -205,11 +222,13 @@ a {
 .ShopContent {
   background-color: var(--second-bg-color);
   padding: 3%;
+}
+
+.ShopProducts {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  /*gap: 40px;*/
 }
 
 .ProductCard {
@@ -257,4 +276,74 @@ a {
 
 .AddToCartBtn {
   padding: 4%;
+}
+
+.Filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.SortingButtons {
+  width: 11vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Filters select {
+  width: 8rem;
+}
+
+.SortingButtons button {
+  width: 5rem;
+}
+
+.Filters select, .SortingButtons button {
+  padding: 0.5rem;
+  border: 0.5px solid var(--button-bg-color);
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 400;
+  background-color: var(--button-text-color);
+}
+
+.Filters select:hover, .SortingButtons button:hover {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  transition: background-color 0.3s ease-out;
+}
+
+.ClearFiltersButton {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+/* styles about us page */
+
+.AboutUsContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.AboutUsSection {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.AboutUsColorSection {
+  background-color: var(--second-bg-color);
+}
+
+.AboutUsImage {
+  height: 50vh;
+}
+
+.AboutUsText {
+  font-size: 1.3rem;
+  width: 40vw;
 }
