@@ -23,7 +23,7 @@ const Cart = ({ isOpen, onClose, items }) => {
                                     <h3 className="CartItemHeader">{item.name}</h3>
                                     <p className="CartText">{item.price}</p>
                                     <p className="CartText">Quantity: {item.quantity}</p>
-                                    <button onClick={() => removeFromCart(item.id)} className="Button">Remove</button>
+                                    <button onClick={() => removeFromCart(item.id)} className="Button CartRemoveButton">Remove</button>
                                 </section>
                                 <img src={item.image} alt={item.name} className="CartItemImage"/>
                             </li>

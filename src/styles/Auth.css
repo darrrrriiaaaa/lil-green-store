@@ -1,0 +1,12 @@
+@import url('./App.css');
+
+.SignInSection {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30vh;
+    width: 40vw;
+    background-color: var(--button-text-color);
+    z-index: 1000;
+}

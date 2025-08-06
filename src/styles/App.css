@@ -54,6 +54,17 @@ a {
   font-size: 2rem;
 }
 
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 900;
+}
+
+
 /* header styles */
 
 .Header {
@@ -91,7 +102,7 @@ a {
   justify-content: space-evenly;
 }
 
-.HeaderCart {
+.HeaderLogo {
   border: none;
   background-color: inherit;
   cursor: pointer;

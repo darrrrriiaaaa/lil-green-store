@@ -28,16 +28,6 @@
   cursor: pointer;
 }
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 900;
-}
-
 .CartText {
   font-size: 1.1rem;
   font-weight: 300;
@@ -80,9 +70,15 @@
   height: 100%;
 }
 
+.CartRemoveButton {
+  font-size: 1.1rem;
+  padding: 6%;
+}
+
 .ClearCartButton {
-  min-width: 80px;
+  min-width: 120px;
   width: 6vw;
   margin: 2rem auto;
   display: block;
+  font-size: 1.2rem;
 }

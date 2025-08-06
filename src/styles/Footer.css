@@ -1,6 +1,7 @@
 @import url('./App.css');
 
 .Footer {
+    position: relative;
     height: 30vh;
     padding: 2% 0;
     display: flex;
@@ -16,4 +17,13 @@
 .FooterText a:hover {
     text-decoration: underline 0.5px;
     text-underline-offset: 3px;
+}
+
+.Footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 0.5px;
+    background-color: var(--second-bg-color);
 }

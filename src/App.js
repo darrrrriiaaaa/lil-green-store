@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 // import context
 import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
 
 // import pages
 import Home from './pages/Home';
@@ -19,18 +20,20 @@ import About from './pages/About';
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/assortment-all' element={<Assortment />} />
-          <Route path='/about-us' element={<About />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer />
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/assortment-all' element={<Assortment />} />
+            <Route path='/about-us' element={<About />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </CartProvider>
+    </AuthProvider>
   );
 }
 
