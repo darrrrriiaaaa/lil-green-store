@@ -10,8 +10,6 @@ export const users = [
         username: "user1",
         email: "testuser@mail.com",
         password: "123",
-        user_orders: [
-            getUserOrders(1)
-        ]
+        user_orders: getUserOrders(1)
     }
 ];
