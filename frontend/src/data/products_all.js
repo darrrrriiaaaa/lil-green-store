@@ -25,10 +25,10 @@ export const products = [
     },
     {
         id: 2,
-        name : "Spathiphyllum",
+        name: "Spathiphyllum",
         price: 16.49,
         image: spathiphyllum,
-        description : "They are super popular houseplants because they look great and are easy to care for.",
+        description: "They are super popular houseplants because they look great and are easy to care for.",
         inStock: true,
         category: "Plants",
         tags: ["flowers"],
