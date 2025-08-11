@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 
 //import components
 import Cart from "./Cart";
-import SignUp from "./SignUp";
+import Auth from "./Auth";
 
 // import images
 import user_logo from '../images/logo/user_in_circle_w_dot.png';
@@ -18,13 +18,13 @@ const Header = () => {
     const navigate = useNavigate();
 
     const [cartOpen, setCartOpen] = useState(false);
-    const [showSignUp, setShowSighUp] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
 
     const handleProfileCheck = () => {
         if (user) {
             navigate("/profile");
         } else {
-            setShowSighUp(true);
+            setShowAuth(true);
         }
     };
 
@@ -44,7 +44,7 @@ const Header = () => {
                         <img src={cart_logo} alt="" className="Logo" />
                     </button>
                     <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
-                    <SignUp isOpen={showSignUp} onClose={() => setShowSighUp(false)} />
+                    <Auth isOpen={showAuth} onClose={() => setShowAuth(false)} />
                 </section>
             </section>
             <section className="MenuSection">

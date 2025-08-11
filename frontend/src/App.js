@@ -7,6 +7,8 @@ import './styles/App.css';
 // import components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 // import context
 import { CartProvider } from './context/CartContext';
@@ -29,6 +31,8 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/assortment-all' element={<Assortment />} />
             <Route path='/about-us' element={<About />} />
+            <Route path='/sign-in' element={<SignIn />} />
+            <Route path='/sign-up' element={<SignUp />} />
           </Routes>
         </BrowserRouter>
         <Footer />
