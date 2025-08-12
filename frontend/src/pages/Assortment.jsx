@@ -1,17 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
-import { products } from "../data/products_all";
 
 import { useCart } from "../context/CartContext";
 
 const Assortment = () => {
     const { addToCart } = useCart();
 
+    const [ products, setProducts ] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
+
     const [ selectedCategory, setSelectedCategory ] = useState("");
     const [ selectedLight, setSelectedLight ] = useState("");
     const [ selectedDifficulty, setSelectedDifficulty ] = useState("");
     const [ selectedColor, setSelectedColor ] = useState("");
+
+    useEffect(() => {
+        const fetchProducts = async() => {
+            try {
+                setLoading(true);
+                const res = await fetch("http://localhost:5000/api/assortment");
+                if (!res.ok) throw new Error("Failed to fetch products");
+                const data = await res.json();
+                console.log("Fetched items: ", data);
+                setProducts(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProducts();
+    }, []);
 
     const filteredProducts = products.filter(product => {
         return (

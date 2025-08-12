@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-import { products } from "../data/products_all";
 
 const CartContext = createContext();
 
@@ -8,10 +7,10 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = (element) => {
         setProducts(prev => {
-            const existing = prev.find(product => product.id === element.id);
+            const existing = prev.find(product => product._id === element._id);
             if (existing) {
                 return prev.map(product => 
-                    product.id === element.id ? { ...product, quantity: product.quantity + 1 } : product
+                    product._id === element._id ? { ...product, quantity: product.quantity + 1 } : product
                 );
             } else {
                 return [...prev, { ...element, quantity: 1 }];
@@ -20,7 +19,7 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeFromCart = (id) => {
-        setProducts(prev => prev.filter(item => item.id !== id));
+        setProducts(prev => prev.filter(item => item._id !== id));
     };
 
     const clearCart = () => setProducts([]);

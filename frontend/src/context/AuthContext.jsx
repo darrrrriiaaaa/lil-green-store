@@ -1,62 +1,37 @@
-import React, { useContext, useState, useEffect, createContext, Children } from "react";
-
-import { users as defaultUsers} from "../data/users";
+import { useContext, useState, createContext } from "react";
+import axios from "axios";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [users, setUsers] = useState(defaultUsers);
+    const [user, setUser] = useState(() => {
+        return JSON.parse(localStorage.getItem("user")) || null;
+    });
+    
+    const signUp = async (username, email, password) => {
+        const res = await axios.post("http://localhost:5000/api/signup", {
+            username, email, password
+        });
+        setUser(res.data.user);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+    };
 
-    useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
+    const signIn = async (username, password) => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/signin", {
+                username, password
+            });
+            setUser(res.data.user);
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            return res.data.user;
+        } catch (err) {
+            throw err;
         }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem("users", JSON.stringify(users));
-    }, [users]);
-
-    const signIn = (username, password) => {
-        const foundUser = defaultUsers.find(
-            (u) => u.username === username && u.password === password
-        );
-
-        if (foundUser) {
-            setUser(foundUser);
-            localStorage.setItem("user", JSON.stringify(foundUser));
-            return true;
-        } else {
-            return null;
-        };
     };
 
     const signOut = () => {
         setUser(null);
         localStorage.removeItem("user");
-    };
-
-    const signUp = (username, password) => {
-        if (users.some(u => u.username === username)) {
-            return null;
-        }
-
-        const newUser = {
-            id: users.length + 1,
-            username,
-            email: "",
-            password,
-            user_orders: []
-        };
-
-        setUsers([...users, newUser]);
-
-        setUser(newUser);
-        localStorage.setItem("user", JSON.stringify(newUser));
-
-        return newUser;
     };
 
     return (

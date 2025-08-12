@@ -33,7 +33,6 @@ const Profile = () => {
             {(orders || []).length > 0 ? (
                 orders.map(order => (
                     <div key={order.orderId}>
-                        {console.log("User orders:", orders)}
                         <p>Order {order.orderId} - {order.date}</p>
                         <ul>
                             {(order.items || []).map(item => (

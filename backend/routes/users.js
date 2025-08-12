@@ -1,11 +1,10 @@
 import express from "express";
-import jwt from "jsonwebtoken";
 
 import User from "../models/User.js";
 
 const userRouter = express.Router();
 
-userRouter.post("/sign-up", async (req, res) => {
+userRouter.post("/signup", async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
@@ -23,12 +22,14 @@ userRouter.post("/sign-up", async (req, res) => {
     }
 });
 
-userRouter.post("/sign-in", async (req, res) => {
+userRouter.post("/signin", async (req, res) => {
     try {
         const { username, password } = req.body;
 
         const user = await User.findOne({ username });
 
+        console.log("Username: ", username, "password: ", password);
+        console.log("User: ", user);
         if (!user || user.password !== password) {
             return res.status(400).json({ message: "Invalid username or password" });
         }

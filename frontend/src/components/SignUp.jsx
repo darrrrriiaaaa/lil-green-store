@@ -6,19 +6,19 @@ import { useAuth } from "../context/AuthContext";
 const SignUp = ({ isOpen, onClose }) => {
     const { signUp } = useAuth();
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const user = signUp(username, password);
-
-        if (!user) {
-            setError("Username already taken, please, choose another.");
-        } else {
+        try {
+            await signUp(email, username, password);
             setError("");
             onClose();
+        } catch (err) {
+            setError("Username already taken, please, choose another.");
         }
     };
 
@@ -26,6 +26,14 @@ const SignUp = ({ isOpen, onClose }) => {
         <section className="FormSection">
             <h2 className="SecondHeader">Sign Up</h2>
             <form className="AuthForm" onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="AuthInput"
+                    required
+                />
                 <input
                     type="text"
                     placeholder="Username"

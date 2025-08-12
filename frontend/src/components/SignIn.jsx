@@ -9,16 +9,14 @@ const SignIn = ({ isOpen, onClose }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const user = signIn(username, password);
-
-        if (!user) {
-            setError("Invalide username or password.");
-        } else {
+        try {
+            await signIn(username, password);
             setError("");
             onClose();
+        } catch (err) {
+            setError("Invalide username or password.");
         }
     };
 
