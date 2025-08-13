@@ -4,8 +4,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 
+// import routers
 import userRouter from "./routes/users.js";
 import productRouter from "./routes/products.js";
+import orderRouter from "./routes/orders.js";
 
 dotenv.config();
 
@@ -17,7 +19,7 @@ app.use(express.json());
 app.use("/uploads", express.static(path.join(process.cwd(), 'uploads')));
 
 app.use("/api", userRouter);
-
+app.use("/api/orders", orderRouter);
 app.use("/api/assortment", productRouter);
 
 const PORT = process.env.PORT || 5000;

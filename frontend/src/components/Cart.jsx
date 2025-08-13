@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // import css
 import '../styles/Cart.css';
@@ -7,6 +8,7 @@ import { useCart } from "../context/CartContext";
 
 const Cart = ({ isOpen, onClose, items }) => {
     const { products, removeFromCart, clearCart } = useCart();
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -23,7 +25,7 @@ const Cart = ({ isOpen, onClose, items }) => {
                                     <h3 className="CartItemHeader">{item.name}</h3>
                                     <p className="CartText">{item.price}</p>
                                     <p className="CartText">Quantity: {item.quantity}</p>
-                                    <button onClick={() => removeFromCart(item.id)} className="Button CartRemoveButton">Remove</button>
+                                    <button onClick={() => removeFromCart(item._id)} className="Button CartRemoveButton">Remove</button>
                                 </section>
                                 <img src={item.image} alt={item.name} className="CartItemImage"/>
                             </li>
@@ -32,7 +34,10 @@ const Cart = ({ isOpen, onClose, items }) => {
                 )}
 
                 {products.length > 0 && (
-                    <button onClick={clearCart} className="Button ClearCartButton">Clear Cart</button>
+                    <section className="CartButtonSection">
+                        <button onClick={() => navigate("/order")} className="Button CartButton">Order</button>
+                        <button onClick={clearCart} className="Button CartButton">Clear Cart</button>
+                    </section>
                 )}
             </section>
             {isOpen && <section className="Overlay" onClick={onClose}></section>}

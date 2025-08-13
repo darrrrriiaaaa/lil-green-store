@@ -19,6 +19,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Assortment from './pages/Assortment';
 import About from './pages/About';
+import Order from './pages/Order';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path='/about-us' element={<About />} />
             <Route path='/sign-in' element={<SignIn />} />
             <Route path='/sign-up' element={<SignUp />} />
+            <Route path='/order' element={<Order />} />
           </Routes>
         </BrowserRouter>
         <Footer />

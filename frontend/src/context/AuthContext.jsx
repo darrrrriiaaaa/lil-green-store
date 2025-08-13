@@ -34,8 +34,19 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("user");
     };
 
+    const updateUser = async () => {
+        if (!user?.username) return;
+        try {
+            const res = await axios.get(`http://localhost:5000/api/profile/${user.username}`);
+            setUser(res.data);
+            localStorage.setItem("user", JSON.stringify(res.data));
+        } catch (err) {
+            console.error("Failed to update user: ", err);
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, signIn, signUp, signOut }}>
+        <AuthContext.Provider value={{ user, signIn, signUp, signOut, updateUser }}>
             {children}
         </AuthContext.Provider>
     )

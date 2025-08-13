@@ -19,7 +19,14 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeFromCart = (id) => {
-        setProducts(prev => prev.filter(item => item._id !== id));
+        console.log("Trying to remove: ", id);
+
+        setProducts(prev => {
+            console.log("Before removing: ", prev);
+            const updated = prev.filter(item => item._id !== id);
+            console.log("After remove: ", updated);
+            return updated;
+        })
     };
 
     const clearCart = () => setProducts([]);

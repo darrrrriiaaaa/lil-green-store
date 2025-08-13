@@ -75,7 +75,14 @@
   padding: 6%;
 }
 
-.ClearCartButton {
+.CartButtonSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.CartButton {
   min-width: 120px;
   width: 6vw;
   margin: 2rem auto;

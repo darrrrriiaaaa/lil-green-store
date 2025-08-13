@@ -358,3 +358,60 @@ a {
   font-size: 1.3rem;
   width: 40vw;
 }
+
+/* profile page styles */
+
+.ProfilePage {
+  padding: 2%;
+  background-color: var(--second-bg-color);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.ProfileText {
+  font-size: 1.1rem;
+}
+
+.ProfileEmail {
+  width: 100%;
+}
+
+.ProfileOrders{
+  background-color: var(--button-text-color);
+  position: relative;
+  width: 100%;
+  padding: 1%;
+}
+
+.ProfileOrderHeader {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.ProfileOrderText {
+  padding: 1%;
+}
+
+.ProfileOrders::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 0.5px;
+  background-color: var(--second-bg-color);
+}
+
+.ProfileOrderItem {
+  font-size: 0.9rem;
+  list-style: inside;
+  padding-left: 2%;
+}
+
+.ProfileButton {
+  padding: 0.9%;
+  width: 20vh;
+}
