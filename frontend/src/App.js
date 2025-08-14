@@ -20,6 +20,8 @@ import Profile from './pages/Profile';
 import Assortment from './pages/Assortment';
 import About from './pages/About';
 import Order from './pages/Order';
+import SearchResults from './pages/SearchResults';
+import Product from './pages/Product';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
             <Route path='/sign-in' element={<SignIn />} />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/order' element={<Order />} />
+            <Route path='/search' element={<SearchResults />} />
+            <Route path='/assortment-all/:productId' element={<Product />} />
           </Routes>
         </BrowserRouter>
         <Footer />

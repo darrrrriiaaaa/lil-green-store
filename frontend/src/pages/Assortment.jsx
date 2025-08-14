@@ -109,7 +109,7 @@ const Assortment = () => {
                 {sortedProducts.map(product => (
                     <section key={product.id} className="ProductCard">
                         <img src={product.image} alt={product.name} className="ProductImage"/>
-                        <NavLink className="ProductHeader">{product.name}</NavLink>
+                        <NavLink to={`/assortment-all/${product._id}`} className="ProductHeader">{product.name}</NavLink>
                         <p className="ProductDescription">{product.description}</p>
                         <section className="PriceAndBuy">
                             <p className="ProductPrice">{product.price}</p>

@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
+import "../styles/Header.css";
 
 // import contexts
 import { useAuth } from "../context/AuthContext";
@@ -17,8 +19,26 @@ const Header = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
 
-    const [cartOpen, setCartOpen] = useState(false);
-    const [showAuth, setShowAuth] = useState(false);
+    const [ cartOpen, setCartOpen ] = useState(false);
+    const [ showAuth, setShowAuth ] = useState(false);
+
+    const [ search, setSearch ] = useState("");
+    const [ results, setResults ] = useState([]);
+
+    useEffect(() => {
+        if (!search) return;
+
+        const fetchResults = async () => {
+            try {
+                const res = await fetch(`http://localhost:5000/api/products/search?q=${search}`);
+                const data = await res.json();
+                setResults(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchResults();
+    }, [search]);
 
     const handleProfileCheck = () => {
         if (user) {
@@ -28,12 +48,19 @@ const Header = () => {
         }
     };
 
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (search.trim()) {
+            navigate(`/search?q=${encodeURIComponent(search.trim())}`);
+        }
+    };
+
     return (
         <header className="Header">
             <section className="HeaderSection">
-                {/* search */}
-                <form className="HeaderItem HeaderSearch">
-                    <img src={search_logo} alt="" className="Logo"/>
+                <form className="HeaderItem HeaderSearch" onSubmit={handleSearchSubmit}>
+                    <img src={search_logo} alt=""  className="Logo SearchLogo"/>
+                    <input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} className="SearchInput" />
                 </form>
                 <NavLink to="/" className="HeaderItem HeaderNameItem">lil' green store</NavLink>
                 <section className="HeaderLogos HeaderItem">

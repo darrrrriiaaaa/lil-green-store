@@ -22,8 +22,11 @@ orderRouter.post("/neworder/:username", async(req, res) => {
         const user = await User.findOne({ username });
         if (!user) return res.status(404).json({ message: "User not found" });
         
-        const orderNumber = (user.user_orders?.length || 0) + 1;
-        const newOrderId = `${username}_${orderNumber}`;
+        const existingOrders = await Order.find({ orderId: new RegExp(`^${username}_\\d+$`) });
+
+        const numbers = existingOrders.map(o => parseInt(o.orderId.split("_")[1], 10));
+        const maxNumber = numbers.length > 0 ? Math.max(...numbers) : 0;
+        const newOrderId = `${username}_${maxNumber + 1}`;
 
         const order = new Order({
             orderId: newOrderId,

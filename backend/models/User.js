@@ -16,6 +16,9 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    user_orders: {
+        type: [String]
     }
 });
 

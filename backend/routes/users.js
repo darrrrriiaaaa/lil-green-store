@@ -40,7 +40,7 @@ userRouter.post("/signin", async (req, res) => {
     }
 });
 
-userRouter.get("/profile:username", async (req, res) => {
+userRouter.get("/profile/:username", async (req, res) => {
     try {
         const user = await User.findOne({ username: req.params.username });
         if (!user) {
@@ -51,5 +51,41 @@ userRouter.get("/profile:username", async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 })
+
+userRouter.put("/profile/update-email/:username", async (req, res) => {
+    try {
+        const { username } = req.params;
+        const { email } = req.body;
+
+        const user = await User.findOne({ username });
+        if (!user) return res.status(404).json({ message: "User not found"});
+
+        user.email = email;
+        await user.save();
+
+        res.json({ message: "Email updated successfully!" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Server error" });
+    };
+});
+
+userRouter.put("/profile/update-password/:username", async (req, res) => {
+    try {
+        const { username } = req.params;
+        const { password } = req.body;
+
+        const user = await User.findOne({ username });
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        user.password = password;
+        await user.save();
+
+        res.json({ message: "Password updated successfully!" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Server error" });
+    };
+});
 
 export default userRouter;

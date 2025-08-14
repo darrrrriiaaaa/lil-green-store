@@ -64,67 +64,6 @@ a {
   z-index: 900;
 }
 
-
-/* header styles */
-
-.Header {
-  background-color: var(--header-color-transparent);
-  height: 16vh;
-  font-weight: 400;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.HeaderSection {
-  height: 60%;
-  padding: 0 5%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: end;
-  font-size: 24px;
-  opacity: 1;
-}
-
-.HeaderNameItem {
-  text-align: center;
-}
-
-.HeaderItem {
-  height: 4vh;
-  min-width: 12%;
-}
-
-.HeaderLogos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.HeaderLogo {
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-}
-
-.Logo {
-  height: 100%;
-}
-
-.MenuSection {
-  height: 40%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: baseline;
-  font-size: 16px;
-}
-
-.MenuItem {
-  margin: 1% 2%;
-}
-
 /* home page styles */
 
 .HomeFirstSection {
@@ -371,6 +310,16 @@ a {
   justify-content: space-evenly;
 }
 
+.ProfileSection {
+  width: 94%;
+  min-height: min-content;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
 .ProfileText {
   font-size: 1.1rem;
 }
@@ -379,11 +328,32 @@ a {
   width: 100%;
 }
 
+.ProfileOrderSection {
+  width: 100%;
+  height: 50vh;
+  overflow-y: scroll;
+  margin: 1%;
+  background-color: var(--header-color-transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .ProfileOrders{
-  background-color: var(--button-text-color);
   position: relative;
   width: 100%;
-  padding: 1%;
+  padding: 1% 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.OrderLine {
+  width: 90%;
+  height: 0.5px;
+  margin: 0 auto;
+  background-color: var(--button-bg-color);
+  opacity: 0.4;
 }
 
 .ProfileOrderHeader {
@@ -391,18 +361,9 @@ a {
   font-weight: 400;
 }
 
-.ProfileOrderText {
-  padding: 1%;
-}
-
-.ProfileOrders::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
-  height: 0.5px;
-  background-color: var(--second-bg-color);
+.ProfileOrdersList {
+  position: relative;
+  padding-bottom: 1%;
 }
 
 .ProfileOrderItem {
@@ -414,4 +375,17 @@ a {
 .ProfileButton {
   padding: 0.9%;
   width: 20vh;
+}
+
+/* search page styles */
+
+.SearchResultsPage {
+  padding: 2%;
+}
+
+.SearchResults {
+  list-style: decimal;
+  padding: 2% 0 0 2%;
+  font-size: 1rem;
+  line-height: 2.5;
 }

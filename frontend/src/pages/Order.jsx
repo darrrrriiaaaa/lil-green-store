@@ -39,18 +39,18 @@ const Order = () => {
                 `http://localhost:5000/api/orders/neworder/${user.username}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ items: products })
+                body: JSON.stringify({ items: orderItems })
             });
             
             if (!res.ok) throw new Error("Failed to create order");
             const newOrder = await res.json();
-
-            await updateUser();
-
-            clearCart();
-
-            alert("Order successfully created!");
-            navigate("/");
+            if (newOrder)
+            {
+                alert (`Order ${newOrder.orderId} created successfully!`);
+                await updateUser();
+                clearCart();
+                navigate("/");
+            }
         } catch (err) {
             console.error(err);
             alert("Failed to create order");
